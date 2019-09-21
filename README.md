@@ -21,27 +21,27 @@ The Name is 沈廷威
 
 
 + Valid
-    + 1. **public void testNormalSingalInSingalOut()**  
+    + 1**public void testNormalSingalInSingalOut()**  
     verify if a single input single output transaction is normal
-    + 2. **public void testJointPayment()**  
+    + 2**public void testJointPayment()**  
     verify if a joint payment transaction transaction is normal
-    + 3. **public void testNormalSingalInMultiOut()**  
+    + 3**public void testNormalSingalInMultiOut()**  
     verify if a SingalInMultiOut transaction transaction is normal
-    + 4. **testNormalMultiInMultiOut()**  
+    + 4**testNormalMultiInMultiOut()**  
     verify if a MultiInMultiOut transaction transaction is normal
-    + 5. **public void testSubsequentTransaction()**  
+    + 5**public void testSubsequentTransaction()**  
     verify if subsequent transactions is normal(if A->B then B use the money A paid him to pay C)
 
 + Invalid
-    + 1. **public void testInvalidSignature()**  
+    + 1.**public void testInvalidSignature()**  
     verify if a transaction with invalid signature will be reject or not
-    + 2. **public void testNegativeInput()**  
+    + 2.**public void testNegativeInput()**  
     verify if a transaction with negative input will be reject or not
-    + 3. **public void testDoubleSpending()**  
+    + 3.**public void testDoubleSpending()**  
     verify if a transaction double spending will be reject or not
-    + 4. **public void testInvalidPrevious()**  
+    + 4.**public void testInvalidPrevious()**  
     verify if a transaction with a invalid previous output will be reject or not（invalid means a tx's hashcode is not in the UTXOPool）
-    + 5.  **public void testInputShortage()**  
+    + 5.**public void testInputShortage()**  
     verify if a transaction input shortage will be reject or not（input value < output value）
     
     
