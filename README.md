@@ -21,15 +21,15 @@ The Name is 沈廷威
 
 
 + Valid
-    + 1**public void testNormalSingalInSingalOut()**  
+    + 1.**public void testNormalSingalInSingalOut()**  
     verify if a single input single output transaction is normal
-    + 2**public void testJointPayment()**  
+    + 2.**public void testJointPayment()**  
     verify if a joint payment transaction transaction is normal
-    + 3**public void testNormalSingalInMultiOut()**  
+    + 3.**public void testNormalSingalInMultiOut()**  
     verify if a SingalInMultiOut transaction transaction is normal
-    + 4**testNormalMultiInMultiOut()**  
+    + 4.**testNormalMultiInMultiOut()**  
     verify if a MultiInMultiOut transaction transaction is normal
-    + 5**public void testSubsequentTransaction()**  
+    + 5.**public void testSubsequentTransaction()**  
     verify if subsequent transactions is normal(if A->B then B use the money A paid him to pay C)
 
 + Invalid
