@@ -115,7 +115,7 @@ The irrational part is that adding new transactons will compromise the hash of t
 ---
 ### Test case design
 
-<font size="4" >In this section the Test Cases can be devided into two parts,single branch just using </font>***public Block createBlock(PublicKey myAddress)*** <font size="4">,or the multibranches using </font> ***public void processTx(Transaction tx)*** .
+<font size="4" >In this section the Test Cases can be devided into two parts,single branch just using </font>***public Block createBlock(PublicKey myAddress)*** <font size="4">,or the multibranches using </font> ***public boolean processBlock(Block block)*** .
 
 
 + single branch
