@@ -91,7 +91,7 @@ public class BlockChain {
         return transactionPool;
     }
 
-    private LinkedHashMap<ByteArrayWrapper,Block> getEndBlocksBranch(ByteArrayWrapper hash){
+    public LinkedHashMap<ByteArrayWrapper,Block> getEndBlocksBranch(ByteArrayWrapper hash){
 //        if(totalCount==0){
 //            return new LinkedHashMap<ByteArrayWrapper,Block>();
 //        }
@@ -124,7 +124,7 @@ public class BlockChain {
 
     }
 
-    private UTXOPool generateNewUTXOPool(LinkedHashMap<ByteArrayWrapper,Block> blockChainBranch){
+    public UTXOPool generateNewUTXOPool(LinkedHashMap<ByteArrayWrapper,Block> blockChainBranch){
         Iterator iter = blockChainBranch.entrySet().iterator();
         UTXOPool result = new UTXOPool();
         while (iter.hasNext()) {

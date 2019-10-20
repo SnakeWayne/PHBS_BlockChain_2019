@@ -76,6 +76,8 @@ This is necessary because when a miner mined two blocks,the ***hash of the coinb
 
 - Change the **HashMap** to **LinkedHashMap** in **TransactionPool** for the purpose that Transaction's order is in the same order as we adding into the chain.
 
+- Adding some tx verification in ***public boolean processBlock(Block block)*** because inside **BlockChain.java** there is no tx verification which need to be done in **BlockHandler.java**.Not like ***public Block createBlock(PublicKey myAddress)*** where the valid txs will be reserved,the block will be rejected as a whole.
+
 
 
 #### Class Design
@@ -139,6 +141,8 @@ The irrational part is that adding new transactons will compromise the hash of t
     verify if a branch action wanting to add the block which height is too small(< Maxheight-CUT_OFF_AGE) will be reject or not
     + 4.***public void testBlockChainReorganizeWithBranch()***  
     verify if the side branches will be discarded or not while Reorganization
+    + 5.***public void testBlockChainInvalidTxBranch()***  
+    verify if using the ProcessBlock methon will reject a block which contains invalid txs as a whole
 
     
     

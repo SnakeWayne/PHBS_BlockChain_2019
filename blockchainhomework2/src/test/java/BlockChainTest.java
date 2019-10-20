@@ -278,6 +278,34 @@ public void testInvalidTransactionInOneBlock() throws NoSuchAlgorithmException, 
 
     }
 
+    @Test
+    public void testBlockChainInvalidTxBranch() throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+        Block validBlock = new Block(genesis.getHash(), keyPairList.get(0).getPublic());
+        validBlock.finalize();
+        test_handler.processBlock(validBlock);
+
+
+        Transaction invalidTx = new Transaction();
+        invalidTx.addInput(new String("Invalid").getBytes(),0);
+        invalidTx.addOutput(25,keyPairList.get(1).getPublic());
+        Signature sig = Signature.getInstance("SHA256withRSA");
+        sig.initSign(keyPairList.get(0).getPrivate());
+        sig.update(invalidTx.getRawDataToSign(0));
+        byte[] sigd = sig.sign();
+        invalidTx.addSignature(sigd,0);
+        invalidTx.finalize();
+
+        Block InvalidBlock = new Block(validBlock.getHash(), keyPairList.get(0).getPublic());
+        InvalidBlock.addTransaction(invalidTx);
+        InvalidBlock.finalize();
+
+        test_handler.processBlock(InvalidBlock);
+
+        assertThat(test_handler.getBlockChain().getMaxHeight(),is(2));
+        assertThat(test_handler.getBlockChain().getBlocks().containsValue(InvalidBlock),is(false));
+
+    }
+
 
 }
 

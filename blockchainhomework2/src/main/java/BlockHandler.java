@@ -17,6 +17,18 @@ public class BlockHandler {
     public boolean processBlock(Block block) {
         if (block == null)
             return false;
+        try {
+            UTXOPool uPool = blockChain.generateNewUTXOPool(blockChain.getEndBlocksBranch(new ByteArrayWrapper(block.getPrevBlockHash())));
+            TxHandler handler = new TxHandler(uPool);
+            Transaction[] txs = block.getTransactions().toArray(new Transaction[0]);
+            Transaction[] rTxs = handler.handleTxs(txs);
+            if(txs.length!=rTxs.length){
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+
         return blockChain.addBlock(block);
     }
 
